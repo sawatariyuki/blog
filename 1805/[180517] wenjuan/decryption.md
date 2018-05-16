@@ -108,16 +108,16 @@ function HLWKvqUl(p430) {
 ```
    function(p,a,c,k,e,d){e=function(c){return c.toString(36);};if(!''.replace(/^/,String)){while(c--)d[c.toString(a)]=k[c]||c.toString(a);k=[function(e){return d[e];}];e=function(){return '\\w+';};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('4 8(a,b){1 d,e,c="";5(d=0;d<a.7/b;d++)e=a.g(d*b),c+=e;3 c}4 h(9,6){1 f=k;3 i("f = j"+6),f(9)}4 l(a){1 c,b="";5(c=0;c<a.7;c++)b+=8(a[c],2);3 m(b)}',23,23,'|var||return|function|for|v|length|slice_str|sa|||||||charAt|et|eval|ef|null|ef1|hex_md5'.split('|'),0,{})
 ```
-1. eval配合一些转字符函数可能用来隐藏关键的函数体
+2. eval配合一些转字符函数可能用来隐藏关键的函数体
 
    此例中就使用了s1(v) = String.fromCharCode(v)将函数体变成了一长串重复s1的字符串。
 
 ## 附录
 1. MD5在线加密
 https://md5jiami.51240.com/
-1. js混淆加密解密
+2. js混淆加密解密
 http://tool.chinaz.com/js.aspx
-1. 相关文件
+3. 相关文件
    [s1.js](./files/s1.js.txt)
    [js解密后的三个function](./files/functions_mark.js)
    [get到的网页](./files/2018.05.17 04-45-14 get.html)
