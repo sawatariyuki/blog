@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Cache-Control" CONTENT="no-store">
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>关于调查小额贷款选择意向</title>
+<link rel="stylesheet" type="text/css" href="https://static-wenjuan.b0.upaiyun.com/static/css/jquery-ui.css?v=1274298e82c469798e4b636ce4e36abc">
+<link href="https://static-wenjuan.b0.upaiyun.com/static/css/survey/theme/base.css?v=df9bf47036fd2048f23e2039ce52562d" rel="stylesheet">
+<link href="https://static-wenjuan.b0.upaiyun.com/static/css/survey/wjend.css?v=ad70d90d46eae28df752b64f57e7f047" rel="stylesheet">
+<link href="https://static-wenjuan.b0.upaiyun.com/static/css/survey/theme/darkblue.css?v=b9919fbc309aa67442a75124c61081e3" rel="stylesheet">
+<link href="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/hcheckbox/hcheckbox.css?v=da24fcc0a17764ca525214bda03a14ec" rel="stylesheet">
+<link href="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/jsbox/jsbox.css?v=a99aca4b7df5bf6c527fd7a22b33ead8" rel="stylesheet" type="text/css" />
+
+
+
+<style type="text/css">
+.wjlogo{text-align: left;}
+body{
+background-color: #efefef;
+
+background-position: ;
+background-repeat: repeat;
+
+}
+#survey_page{background-color: #fff; opacity: 1.0;}
+.wjhr, .wj_color, .open_results{background-color: #53a4f4}
+.wjhr:hover, .wj_color:hover, .open_results:hover{opacity: 0.8;}
+.wjprogress span{color: #53a4f4}
+.wjprogress .bar{border-color: #53a4f4}
+.wjprogress .barbox{background-color: #53a4f4}
+#control_panel .WJButton{border-width:1px;border-style:solid;border-color: #53a4f4;color: #fff}
+#control_panel .prevButton{border-color: #53a4f4;color: #53a4f4}
+#base_pwd_win .WJButton{color: #fff}
+
+
+
+.question .title{}
+
+
+
+
+.question .option_label{}
+.question .option_label .tdiv{}
+
+
+
+
+.project_title h1{}
+
+
+
+
+.desc_begin p{}
+
+
+
+
+#end_desc{}
+
+
+</style>
+
+
+
+<style type="text/css">#control_panel .prevButton{ background: #ffffff;}</style>
+</head>
+<body>
+<p style="display:none;" class="hei_cq"></p>
+
+
+<div class="wjContent clear" id="survey_page">
+<div class="content" id="begin_content" style="">
+
+
+<div class="wjtitle mtop project_title">
+<h1><p style="text-align: left;">关于调查小额贷款选择意向</p></h1>
+</div>
+<div class="wjintro mtop desc_begin">
+<p></p>
+</div>
+
+
+
+
+
+<div class="wjhr mtop"></div>
+
+</div>
+
+<div id="question_box">
+<div class="maxtop btns title" id="loader_div_1" style="display:block; text-align:center;">
+<img src="https://static-wenjuan.b0.upaiyun.com/static/img/survey/loader.gif?v=b256d80f54c1415d7a6a6fdec39769f4" alt="" />
+<br />
+加载中...
+</div>
+<!-- Append question's html code here. -->
+</div>
+
+<div class="maxtop btns" id="control_panel">
+<div class="WJButton prevButton" id="prev_button" style="display:none;">上一页</div>
+<div class="WJButton wj_color" id="next_button" style="display:none;">下一页</div>
+<div class="WJButton wj_color" id="confirm_verify_btn" style="display:none;">确认</div>
+<div class="WJButton wj_color_gray" style="border-color: #cccccd;width: 50px; display:none;" id="time_count"></div>
+<div class="red fL" id="err_msg"></div>
+
+
+<div class="wjprogress" id="progress_bar" style="display:none;">
+<span>20%</span>
+<div class="bar">
+<div class="barbox"></div>
+</div>
+</div>
+<div id="timeremain"></div>
+</div>
+<div class="maxtop btns" style="display:none;" id="vcode_panel">
+<img src="">
+<input type="input" name="vcode" id="vcode">
+<div class="WJButton" id="vcode_confirm">OK</div>
+</div>
+<div class="maxtop btns title" id="loader_div" style="display:none; text-align:center;">
+<img src="https://static-wenjuan.b0.upaiyun.com/static/img/survey/loader.gif?v=b256d80f54c1415d7a6a6fdec39769f4" alt="" />
+<br />
+<div id="loader_text">正在保存...</div>
+</div>
+<div class="conthank" id="survey_end" style="display:none;">
+<p id="end_desc" class="cn"></p>
+<!-- 问卷网抽奖 -->
+<p class="luck_draw_tip" style="display:none;">真遗憾，红包与你擦肩而过</p>
+<div class="wj_luck_draw" id="wj_luck_draw" style="display:none;">
+</div>
+<!--运气红包哭脸-->
+<div class="envelope_draw" id="no_EnvelopeDiv_box" style="display: none;">
+<center><img src="https://static-wenjuan.b0.upaiyun.com/static/images/plugin_center/no_money.png?v=f85696c34e24f8379cad69034f5e8c80" width="80%" /></center>
+
+<a class="draw_btn" href="javascript:;">别灰心 再试一次</a>
+
+</div>
+<!-- 查看报表 -->
+
+<!-- 广告 -->
+
+<div class="envelope_draw inline-block">
+<a target="_blank" href="https://www.wenjuan.com/?utm_source=rspd&utm_shortid=AjIz2iS&hmsr=%E7%AD%94%E9%A2%98%E9%A1%B5&hmpl=PC&hmcu=&hmkw=&hmci=" class="end_create_btn">我也要免费创建问卷</a>
+</div>
+
+<!-- 运气红包 -->
+<div class="envelope_draw" id="envelopeDiv_box" style="display:none;">
+
+<center class="go_draw_btn_box"><img src="https://static-wenjuan.b0.upaiyun.com/static/images/plugin_center/hongbao.png?v=b1a978c49df2b302e3892a416bce1159" width="100%"></center>
+
+<!-- <span>试试手气</span> -->
+</div>
+<!-- 红包 -->
+<!-- <div class="envelope_draw" id="envelopeDiv" style="display:none;">
+<p>恭喜！您获得 <span class="text_pink">1个</span> 红包！请在15分钟之内领取。</p>
+<div class="red_box"></div>
+</div> -->
+<!-- 来晚了，红包没了 -->
+<div class="envelope_draw" id="noEnvelope" style="display:none;">
+<center><img src="/static/images/plugin_center/ml.png" /></center>
+<p style="padding-top:15px;">来晚一步，红包已被抢完了！</p>
+</div>
+<!-- 红包抽奖，中奖弹层-->
+<div class="envelope_draw_layer" id="envelope_layer" style="display:none;">
+<div class="c_mark"></div>
+<div class="show_smallWrap">
+<div class="head_title">
+<p>中奖提示</p>
+<i class="small_close"></i>
+</div>
+<div class="small_wrap">
+<p>恭喜您获得 <span class="text_pink"><span class="big_size"></span>元</span></p>
+<p>用微信扫一扫，即可领取红包</p>
+<img src="" class="red_code" width="180" />
+</div>
+</div>
+</div>
+<!-- 抽奖 -->
+<!-- <div class="envelope_draw" id="lucydrawDiv" style="display:none;">
+<p>恭喜！您获得 <span class="text_pink">1次</span> 抽奖机会</p>
+<a href="" class="go_draw_btn">立即抽奖</a>
+</div> -->
+<!-- 分享按钮 -->
+
+</div>
+<div class="Error_message" id="error_msg_box" style="display:none;">
+<span class="error_text"></span>
+<div href="javascript:;" class="WJButton wj_color" style="display:none;" id="reupload_answer">&nbsp;&nbsp;重新提交&nbsp;&nbsp;</div>
+<a href="/about/zxzx/" class="WJButton wj_color" style="display:none;" id="fankui" >&nbsp;&nbsp;马上联系我们&nbsp;&nbsp;</a>
+</div>
+</div>
+<!-- iframe抽奖 -->
+<div class="envelope_draw" id="luckdraw_iframe" style="display:none">
+<button>按钮</button>
+<iframe name='iframe' src="" frameborder="0" scrolling="no"></iframe>
+</div>
+<!-- 分享按钮 -->
+
+<div id="gt" style="display: none;">
+<p class="bt">您需要完成以下验证才可提交</p>
+</div>
+<!--wjContent end-->
+<style type="text/css">
+.ma_auto{width:none;}
+.instructions div{float:none;}
+.footer_logo {text-align: center;display: inline-block;margin-top: 5px;}
+.wjtext{text-align: center;}
+.wjtext a{display:inline;}
+</style>
+
+<div class="footer_mini">
+<div class="footer">
+<div class="instructions">
+
+
+
+<div class="footer_logo">
+<div class='wjtext'><a href='http://www.wenjuan.com' target='_blank'>问卷网 </a><span>提供支持</span></div>
+</div>
+<a class="jubao" target="blank" title="举报" href="/project/allegation/?project_id=5afc38c4a320fc9daad65596">举报</a>
+
+
+
+</div>
+</div>
+</div>
+
+<form id="report_doc_content" style="display:none" action="/report/docx/content?pid=5afc38c4a320fc9daad65596" method="POST" >
+<input type="hidden" name="proj_id" value="5afc38c4a320fc9daad65596" >
+<input type="hidden" name="_xsrf" value="44cb0cf4ff434f8ba7c73a4ea551ca1d"/>
+</form>
+<form action="#" method="post" id="upload_form">
+<input type="hidden" name="_xsrf" value="44cb0cf4ff434f8ba7c73a4ea551ca1d"/>
+<input type="hidden" name="total_answers_str" id="total_answers_str"/>
+<input type="hidden" name="finish_status" id="finish_status"/>
+<input type="hidden" name="timestr" value="2018-05-17 01:25:12" />
+<input type="hidden" name="idy_uuid" value="f48b61782caffef1175547921a2de1bd" />
+<input type="hidden" name="version" value="3" />
+<input type="hidden" name="s_func_id" value="28" />
+<input type="hidden" name="vvv" value="af23bb205900dd8865e36ec8ec1508bf" />
+<input type="hidden" name="rand_int" value="11" />
+<input type="hidden" name="pconvert_data" id="pconvert_data" />
+<input type="hidden" name="svc" id="svc" />
+<input type="hidden" name="s_code" id="s_code" />
+<input type="hidden" name="from_form" value="1" />
+</form>
+
+<img id="wj_rspd_advertising" src="https://api.wenjuan.link/dmp/0.0.1/user/plant?mid=&mtc=&project_id=5afc38c4a320fc9daad65596&token=d2VuanVhbiAxNTI2NDkwODExNDgzIGIxOTA1Njk3MDJjYTNhYWEwZDFkM2VhZTMwMzQ2MjlmZDE5NzhjMTc=" style="display:none;">
+
+</body>
+</html>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_1.10.2.min.js?v=b62fe6d31abbd18c3f7eb34ddf470d63"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery-migrate-1.2.1.js?v=26d9dd4e5632fdfef65c62330faabb9f"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery-ui-1.10.3.custom.min.js?v=f398a0da2472a10faaf5f30603ecdb14"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/modernizr.js?v=6b699e7c918ab49f8a93ad65d1f3edcb"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/public.js?v=f9eb718dc16c6abc0864a8223e67b21a"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/tools.js?v=b48cd672a8e18aec2cc22009b2a1cc8a"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_ui/jQuery_ui_survey.js?v=485f6ae6b865ce0fdd613123af2572ed"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_ui/jquery.ui.core.js?v=495fc824644e9f56c716f4f19f797394"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_ui/jquery.ui.widget.js?v=d1d42e7b1fa13faeeb3f1d9487107135"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_ui/jquery.ui.touch.js?v=1f010d31bc4d13728e4149f0650d2f6e"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery_ui/jquery.ui.slider.js?v=1ebf6d0ec23104d16f3b29dd7352641c"></script>
+<!--<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/jscheck/jquery.icheck.min.js?v=b31463e701bddd0f07280bf85e3e0d37"></script>-->
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/hcheckbox/jquery-hcheckbox.js?v=35aea31ff477a55069f6022b487d6d73"></script>
+<!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script> -->
+<!--script type="text/javascript" src=""></script-->
+<script type="text/javascript">
+var test_mode = window.location.href.indexOf("test=1") != -1 ? true : false;
+var project = {"autoreplace_list": [{"_id": {"$oid": "5afc4ec292beb53f1f035370"}, "obj_id": "5afc398c92beb53f1f0350ef", "source_qid": "5afc38d192beb540c8ad17f4", "tag": "[Q1]", "dest_type": 1, "project_id": "5afc38c4a320fc9daad65596", "question_id": "5afc398c92beb53f1f0350ef"}], "last_updated": {"$date": 1526514065978}, "page_count": 1, "activated": {"$date": 1526514066030}, "share_status": 1, "official_status": 0, "begin_desc": "\u611f\u8c22\u60a8\u80fd\u62bd\u51fa\u51e0\u5206\u949f\u65f6\u95f4\u6765\u53c2\u52a0\u672c\u6b21\u7b54\u9898\uff0c\u73b0\u5728\u6211\u4eec\u5c31\u9a6c\u4e0a\u5f00\u59cb\u5427\uff01", "short_id": "AjIz2iS", "is_struct_change": 1, "questionpage_id_list": ["5afc38c4a320fc9daad65597"], "project_func_id": "51dd234e9b9fbe6646bf4dd2", "questionpage_list": [{"updated": {"$date": 1526507844286}, "_id": {"$oid": "5afc38c4a320fc9daad65597"}, "question_id_list": ["5afc38d192beb540c8ad17f4", "5afc390392beb53ef139ddd0", "5afc397692beb540c8ad1811", "5afc398c92beb53f1f0350ef", "5afc4a2c92beb53f1f0352ef", "5afc39d392beb54092600ca1", "5afc4b2892beb53f913050aa", "5afc39f892beb540c8ad1838"], "question_list": [{"has_open_option": false, "_id": {"$oid": "5afc38d192beb540c8ad17f4"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc38d192beb540c8ad17f5", "5afc38d192beb540c8ad17f6", "5afc38e692beb5418c2fddf5", "5afc38ec92beb541295b3b58"], "cid": "Q1", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u7684\u5e74\u9f84", "updated": {"$date": 1526507857771}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526507857844}, "cid": "A1", "title": "20-30", "is_open": false, "_id": {"$oid": "5afc38d192beb540c8ad17f5"}, "custom_attr": {}, "question_id": "5afc38d192beb540c8ad17f4"}, {"updated": {"$date": 1526507857873}, "cid": "A2", "title": "30-40", "is_open": false, "_id": {"$oid": "5afc38d192beb540c8ad17f6"}, "custom_attr": {}, "question_id": "5afc38d192beb540c8ad17f4"}, {"updated": {"$date": 1526507878385}, "cid": "A3", "title": "40-50", "is_open": false, "_id": {"$oid": "5afc38e692beb5418c2fddf5"}, "custom_attr": {}, "question_id": "5afc38d192beb540c8ad17f4"}, {"updated": {"$date": 1526507884773}, "cid": "A4", "title": "&gt;50", "is_open": false, "_id": {"$oid": "5afc38ec92beb541295b3b58"}, "custom_attr": {}, "question_id": "5afc38d192beb540c8ad17f4"}], "jumpconstraint_id_list2": [], "question_type": 2, "displayconstraint_id_list2": [], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {}}, {"has_open_option": false, "_id": {"$oid": "5afc390392beb53ef139ddd0"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc390392beb53ef139ddd1", "5afc390392beb53ef139ddd2", "5afc392592beb53f1f0350d8", "5afc392e92beb53e8ca40200", "5afc395892beb5418c2fddff"], "cid": "Q2", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u5c31\u804c\u4e8e", "updated": {"$date": 1526507907586}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526507907671}, "cid": "A1", "title": "\u56fd\u5bb6\u673a\u5173", "is_open": false, "_id": {"$oid": "5afc390392beb53ef139ddd1"}, "custom_attr": {}, "question_id": "5afc390392beb53ef139ddd0"}, {"updated": {"$date": 1526507907721}, "cid": "A2", "title": "\u4e2a\u4f53", "is_open": false, "_id": {"$oid": "5afc390392beb53ef139ddd2"}, "custom_attr": {}, "question_id": "5afc390392beb53ef139ddd0"}, {"updated": {"$date": 1526507941785}, "cid": "A3", "title": "\u5927\u578b\u4f01\u4e1a", "is_open": false, "_id": {"$oid": "5afc392592beb53f1f0350d8"}, "custom_attr": {}, "question_id": "5afc390392beb53ef139ddd0"}, {"updated": {"$date": 1526507950394}, "cid": "A4", "title": "\u4e2d\u5c0f\u578b\u4f01\u4e1a", "is_open": false, "_id": {"$oid": "5afc392e92beb53e8ca40200"}, "custom_attr": {}, "question_id": "5afc390392beb53ef139ddd0"}, {"updated": {"$date": 1526507992761}, "cid": "A5", "title": "\u5176\u4ed6", "is_open": false, "_id": {"$oid": "5afc395892beb5418c2fddff"}, "custom_attr": {}, "question_id": "5afc390392beb53ef139ddd0"}], "jumpconstraint_id_list2": [], "question_type": 2, "displayconstraint_id_list2": [], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {}}, {"has_open_option": false, "_id": {"$oid": "5afc397692beb540c8ad1811"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc397692beb540c8ad1812", "5afc397692beb540c8ad1813"], "cid": "Q3", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u662f\u5426\u6709\u7a33\u5b9a\u6536\u5165", "updated": {"$date": 1526508022587}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526508022691}, "cid": "A1", "title": "\u662f", "is_open": false, "_id": {"$oid": "5afc397692beb540c8ad1812"}, "custom_attr": {}, "question_id": "5afc397692beb540c8ad1811"}, {"updated": {"$date": 1526508022754}, "cid": "A2", "title": "\u5426", "is_open": false, "_id": {"$oid": "5afc397692beb540c8ad1813"}, "custom_attr": {}, "question_id": "5afc397692beb540c8ad1811"}], "jumpconstraint_id_list2": [], "question_type": 2, "displayconstraint_id_list2": [], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {}}, {"has_open_option": false, "_id": {"$oid": "5afc398c92beb53f1f0350ef"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc398d92beb53f1f0350f0", "5afc398d92beb53f1f0350f1"], "cid": "Q4", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "<p>\u5728\u60a8\u9700\u8981\u8d37\u6b3e\u65f6\u4f60\u4f1a\u4f18\u5148\u9009\u62e9</p>", "updated": {"$date": 1526508044857}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526508044998}, "cid": "A1", "title": "\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc398d92beb53f1f0350f0"}, "custom_attr": {}, "question_id": "5afc398c92beb53f1f0350ef"}, {"updated": {"$date": 1526508045081}, "cid": "A2", "title": "\u5c0f\u8d37\u516c\u53f8", "is_open": false, "_id": {"$oid": "5afc398d92beb53f1f0350f1"}, "custom_attr": {}, "question_id": "5afc398c92beb53f1f0350ef"}], "jumpconstraint_id_list2": ["5afc3a3392beb53e8ca40229", "5afc3a3392beb53e8ca4022c"], "question_type": 2, "displayconstraint_id_list2": [], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {}}, {"has_open_option": false, "_id": {"$oid": "5afc4a2c92beb53f1f0352ef"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc4a2c92beb53f1f0352f0", "5afc4a2c92beb53f1f0352f1", "5afc4aba92beb540c8ad1a5b", "5afc4ace92beb5418c2fe031", "5afc4ad492beb541295b3da1", "5afc4b1a92beb53f1f03530a"], "cid": "Q5", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u4f1a\u9009\u62e9\u7684\u94f6\u884c\u6709", "updated": {"$date": 1526512300103}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526512300199}, "cid": "A1", "title": "\u4e2d\u56fd\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc4a2c92beb53f1f0352f0"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}, {"updated": {"$date": 1526512300250}, "cid": "A2", "title": "\u4e2d\u56fd\u519c\u4e1a\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc4a2c92beb53f1f0352f1"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}, {"updated": {"$date": 1526512442527}, "cid": "A3", "title": "\u4e2d\u56fd\u5efa\u8bbe\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc4aba92beb540c8ad1a5b"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}, {"updated": {"$date": 1526512462870}, "cid": "A4", "title": "\u4ea4\u901a\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc4ace92beb5418c2fe031"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}, {"updated": {"$date": 1526512468076}, "cid": "A5", "title": "\u4e2d\u56fd\u5de5\u5546\u94f6\u884c", "is_open": false, "_id": {"$oid": "5afc4ad492beb541295b3da1"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}, {"updated": {"$date": 1526512538174}, "cid": "A6", "title": "\u5176\u4ed6", "is_open": false, "_id": {"$oid": "5afc4b1a92beb53f1f03530a"}, "custom_attr": {}, "question_id": "5afc4a2c92beb53f1f0352ef"}], "jumpconstraint_id_list2": [], "question_type": 3, "displayconstraint_id_list2": ["5afc4c0892beb53f5e2880f6"], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {"condition_relation": 1}}, {"has_open_option": false, "_id": {"$oid": "5afc39d392beb54092600ca1"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc39d392beb54092600ca2", "5afc39d392beb54092600ca3", "5afc3a1292beb5405cf59064"], "cid": "Q6", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u9009\u62e9\u94f6\u884c\u7684\u539f\u56e0\u6709", "updated": {"$date": 1526508115123}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526508115245}, "cid": "A1", "title": "\u8d37\u6b3e\u5229\u7387\u4f4e", "is_open": false, "_id": {"$oid": "5afc39d392beb54092600ca2"}, "custom_attr": {}, "question_id": "5afc39d392beb54092600ca1"}, {"updated": {"$date": 1526508115303}, "cid": "A2", "title": "\u5b89\u5168\u6709\u4fdd\u8bc1", "is_open": false, "_id": {"$oid": "5afc39d392beb54092600ca3"}, "custom_attr": {}, "question_id": "5afc39d392beb54092600ca1"}, {"updated": {"$date": 1526508178045}, "cid": "A3", "title": "\u5176\u4ed6", "is_open": false, "_id": {"$oid": "5afc3a1292beb5405cf59064"}, "custom_attr": {}, "question_id": "5afc39d392beb54092600ca1"}], "jumpconstraint_id_list2": [], "question_type": 3, "displayconstraint_id_list2": ["5afc4c1692beb540fb2aacba"], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {"condition_relation": 1}}, {"has_open_option": false, "_id": {"$oid": "5afc4b2892beb53f913050aa"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc4b2992beb53f913050ab", "5afc4b2992beb53f913050ac", "5afc4b8c92beb53ec339ef46", "5afc4ba192beb5405cf5926a", "5afc4bc692beb5405cf59276", "5afc4bd592beb53f5e2880ee"], "cid": "Q7", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u4f1a\u9009\u62e9\u7684\u5c0f\u8d37\u516c\u53f8\u6709", "updated": {"$date": 1526512552863}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526512552998}, "cid": "A1", "title": "\u5e73\u5b89\u666e\u60e0", "is_open": false, "_id": {"$oid": "5afc4b2992beb53f913050ab"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}, {"updated": {"$date": 1526512553080}, "cid": "A2", "title": "\u4eba\u4eba\u8d37", "is_open": false, "_id": {"$oid": "5afc4b2992beb53f913050ac"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}, {"updated": {"$date": 1526512652918}, "cid": "A3", "title": "\u9a6c\u4e0a\u91d1\u878d", "is_open": false, "_id": {"$oid": "5afc4b8c92beb53ec339ef46"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}, {"updated": {"$date": 1526512673138}, "cid": "A4", "title": "\u6377\u4fe1", "is_open": false, "_id": {"$oid": "5afc4ba192beb5405cf5926a"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}, {"updated": {"$date": 1526512710569}, "cid": "A5", "title": "\u7396\u5bcc\u666e\u60e0", "is_open": false, "_id": {"$oid": "5afc4bc692beb5405cf59276"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}, {"updated": {"$date": 1526512725849}, "cid": "A6", "title": "\u5176\u4ed6", "is_open": false, "_id": {"$oid": "5afc4bd592beb53f5e2880ee"}, "custom_attr": {}, "question_id": "5afc4b2892beb53f913050aa"}], "jumpconstraint_id_list2": [], "question_type": 3, "displayconstraint_id_list2": ["5afc4c2592beb53f913050cb"], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {"condition_relation": 1}}, {"has_open_option": false, "_id": {"$oid": "5afc39f892beb540c8ad1838"}, "jumpconstraint_id_list": [], "option_id_list": ["5afc39f892beb540c8ad1839", "5afc39f892beb540c8ad183a", "5afc3a1e92beb540297ef437"], "cid": "Q8", "questionpage_id": "5afc38c4a320fc9daad65597", "related_question_list": [], "title": "\u60a8\u9009\u62e9\u5c0f\u8d37\u516c\u53f8\u7684\u539f\u56e0\u6709", "updated": {"$date": 1526508152195}, "matrixrow_list": [], "matrixrow_id_list": [], "option_list": [{"updated": {"$date": 1526508152327}, "cid": "A1", "title": "\u653e\u6b3e\u5feb", "is_open": false, "_id": {"$oid": "5afc39f892beb540c8ad1839"}, "custom_attr": {}, "question_id": "5afc39f892beb540c8ad1838"}, {"updated": {"$date": 1526508152386}, "cid": "A2", "title": "\u5ba1\u6838\u8981\u6c42\u4f4e", "is_open": false, "_id": {"$oid": "5afc39f892beb540c8ad183a"}, "custom_attr": {}, "question_id": "5afc39f892beb540c8ad1838"}, {"updated": {"$date": 1526508190794}, "cid": "A3", "title": "\u5176\u4ed6", "is_open": false, "_id": {"$oid": "5afc3a1e92beb540297ef437"}, "custom_attr": {}, "question_id": "5afc39f892beb540c8ad1838"}], "jumpconstraint_id_list2": [], "question_type": 3, "displayconstraint_id_list2": ["5afc4c3092beb53f5e2880fd"], "project_id": "5afc38c4a320fc9daad65596", "displayconstraint_id_list": [], "custom_attr": {"condition_relation": 1}}], "project_id": "5afc38c4a320fc9daad65596", "custom_attr": {}}], "version": 3, "question_count": 8, "end_desc": "<p style=\"text-align: center;\">\u60a8\u5df2\u5b8c\u6210\u672c\u6b21\u95ee\u5377\uff0c\u611f\u8c22\u60a8\u7684\u5e2e\u52a9\u4e0e\u652f\u6301</p>", "status": 1, "updated": {"$date": 1526514066031}, "displayconstraint_list": [{"project_id": "5afc38c4a320fc9daad65596", "condition": {"_id": {"$oid": "5afc4c0692beb53f5e2880f4"}, "condition_item_list": [{"_id": {"$oid": "5afc4c0692beb53f5e2880f5"}, "option_id": "5afc398d92beb53f1f0350f0", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc4c0692beb53f5e2880f4", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 3, "condition_item_id_list": ["5afc4c0692beb53f5e2880f5"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "id": "5afc4c0892beb53f5e2880f6", "condition_id": "5afc4c0692beb53f5e2880f4", "question_id": "5afc4a2c92beb53f1f0352ef"}, {"project_id": "5afc38c4a320fc9daad65596", "condition": {"_id": {"$oid": "5afc4c1692beb540fb2aacb8"}, "condition_item_list": [{"_id": {"$oid": "5afc4c1692beb540fb2aacb9"}, "option_id": "5afc398d92beb53f1f0350f0", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc4c1692beb540fb2aacb8", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 3, "condition_item_id_list": ["5afc4c1692beb540fb2aacb9"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "id": "5afc4c1692beb540fb2aacba", "condition_id": "5afc4c1692beb540fb2aacb8", "question_id": "5afc39d392beb54092600ca1"}, {"project_id": "5afc38c4a320fc9daad65596", "condition": {"_id": {"$oid": "5afc4c2492beb53f913050c9"}, "condition_item_list": [{"_id": {"$oid": "5afc4c2592beb53f913050ca"}, "option_id": "5afc398d92beb53f1f0350f1", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc4c2492beb53f913050c9", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 3, "condition_item_id_list": ["5afc4c2592beb53f913050ca"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "id": "5afc4c2592beb53f913050cb", "condition_id": "5afc4c2492beb53f913050c9", "question_id": "5afc4b2892beb53f913050aa"}, {"project_id": "5afc38c4a320fc9daad65596", "condition": {"_id": {"$oid": "5afc4c3092beb53f5e2880fb"}, "condition_item_list": [{"_id": {"$oid": "5afc4c3092beb53f5e2880fc"}, "option_id": "5afc398d92beb53f1f0350f1", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc4c3092beb53f5e2880fb", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 3, "condition_item_id_list": ["5afc4c3092beb53f5e2880fc"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "id": "5afc4c3092beb53f5e2880fd", "condition_id": "5afc4c3092beb53f5e2880fb", "question_id": "5afc39f892beb540c8ad1838"}], "jumpconstraint_list": [{"condition_id": "5afc3a3392beb53e8ca4022a", "next_qid": "5afc4b2892beb53f913050aa", "project_id": "5afc38c4a320fc9daad65596", "id": "5afc3a3392beb53e8ca4022c", "condition": {"_id": {"$oid": "5afc3a3392beb53e8ca4022a"}, "condition_item_list": [{"_id": {"$oid": "5afc3a3392beb53e8ca4022b"}, "option_id": "5afc398d92beb53f1f0350f1", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc3a3392beb53e8ca4022a", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 2, "condition_item_id_list": ["5afc3a3392beb53e8ca4022b"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "question_id": "5afc398c92beb53f1f0350ef"}, {"condition_id": "5afc3a3392beb53e8ca40227", "next_qid": "5afc4a2c92beb53f1f0352ef", "project_id": "5afc38c4a320fc9daad65596", "id": "5afc3a3392beb53e8ca40229", "condition": {"_id": {"$oid": "5afc3a3392beb53e8ca40227"}, "condition_item_list": [{"_id": {"$oid": "5afc3a3392beb53e8ca40228"}, "option_id": "5afc398d92beb53f1f0350f0", "score_range": {}, "operation_type": 1, "project_id": "5afc38c4a320fc9daad65596", "condition_id": "5afc3a3392beb53e8ca40227", "question_id": "5afc398c92beb53f1f0350ef"}], "condition_type": 2, "condition_item_id_list": ["5afc3a3392beb53e8ca40228"], "project_id": "5afc38c4a320fc9daad65596", "logic_relation": 2}, "question_id": "5afc398c92beb53f1f0350ef"}], "first_create_for_member": false, "custom_attr": {"survey_share_pic_url": "/static/images/rspd_share_wenjuan.png", "suspected_titles": ["title \u8d37\u6b3e", "Q4 \u8d37\u6b3e", "Q6__A1 \u8d37\u6b3e_\u5229\u7387"], "panelsite": "101", "seal_status": 0, "theme": "darkblue", "scrollbar": "on", "suspected_words": 1, "new_custom_style": {"TerminalStyle": {"PC": {"R_BgColor": "", "BgImagePosition": "", "backgroundRepeat": "repeat", "ImageURl": "", "BgColor": "#efefef", "WjBgColor": "#fff", "BgImageURl": "", "font": [{"bold": "", "color": "", "underline": "", "italic": "", "font": "", "id": "QuesitonStyle", "size": ""}, {"bold": "", "color": "", "underline": "", "italic": "", "font": "", "id": "OptionsStyle", "size": ""}, {"bold": "", "color": "", "underline": "", "italic": "", "font": "", "id": "TopicStyle", "size": ""}, {"bold": "", "color": "", "underline": "", "italic": "", "font": "", "id": "WelcomeStyle", "size": ""}, {"bold": "", "color": "", "underline": "", "italic": "", "font": "", "id": "EndStyle", "size": ""}], "OtherColor": "#53a4f4", "R_OtherColor": "#fff"}, "Phone": {"buttonSelectColor": "#2672FF", "titleBgColor": "#2672FF", "coverImgUrl": "", "titleBeginFontColor": "#FFFFFF", "beginFontSize": "16", "questionTitleFontColor": "#484848", "notCoverImg": true, "questionTitleFontSize": "22", "BgColor": "#F6F6F6", "theme": "22", "titleFontSize": "28", "questionOptionFontColor": "#484848"}}, "Language": "zh_CN", "Number": "false", "ProgressBar": "true", "logoPosition": "left", "logoURL": ""}, "screenout_desc": "\u4e0d\u597d\u610f\u601d\uff0c\u60a8\u4e0d\u592a\u9002\u5408\u672c\u6b21\u8c03\u67e5\uff0c\u8c22\u8c22\u60a8\u7684\u65f6\u95f4"}, "is_shared": false, "created": {"$date": 1526507844208}, "title": "<p style=\"text-align: left;\">\u5173\u4e8e\u8c03\u67e5\u5c0f\u989d\u8d37\u6b3e\u9009\u62e9\u610f\u5411</p>", "question_relation_list": [], "creator_id": "5afc3876a320fc9d0a4f3aec", "_id": {"$oid": "5afc38c4a320fc9daad65596"}, "is_hdgc": false};
+var mobile_auth_queston_status = 2;
+
+</script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/juicer.js?v=eddf2482fed75dc11f602a5f519435cb"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/jquery.cookie.js?v=d5528dde0006c78be04817327c2f9b6f"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/md5-min.js?v=0422005ea9630b5b74416281eecf24cb"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/json.js?v=2ba3e68501985816b26089f135e5b718"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/ajaxfileupload.js?v=7c5ad7ed67e791a7044f023104d3c36d"></script>
+<!--隐藏logo购买-->
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plugin_center/hide_logo_buy.js?v=cb3420c959ff20cb2452849ca838b55a"></script>
+<script src="https://static-wenjuan.b0.upaiyun.com/static/js/common.js?v=edd408bb754d7a21b5293da17ab28092"></script>
+<script src="https://static-wenjuan.b0.upaiyun.com/static/js/plugin_center/plugin_center.js?v=f6a38238c4e6ed382596cae6f046a072"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/translate/zh_CN/s1.js?v=2757ab07bedf484178119740f0a05e60"></script>
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/form/fill_answer_func.js?v=bf471051620bfcdcbbf6c98a2396d342"></script>
+<!--弹出框-->
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/jsbox/jsbox.js?v=d7c1b4378b3a3164fb5cdc22f8306c6d"></script>
+<script type="text/javascript" src="//webapi.amap.com/maps?v=1.3&key=6a92e68080ab6c0cd8973ddb90668c47"></script>
+<script type="text/javascript">
+var draw_ret;
+$(function(){
+$('#envelope_layer .small_close').live('click',function(){
+$('#envelope_layer').fadeOut(150);
+$(".footer_mini").show();
+});
+// 开红包
+$('.go_draw_btn_box').live('click',function(){
+// 此处统计显示/隐藏‘我也要免费创建项目’按钮后点击‘试试手气’按钮的数量
+if($('.end_create_btn').length){
+_hmt.push(['_trackEvent', '/s', 'click', 'show_create_btn_luckydraw']);
+}else{
+_hmt.push(['_trackEvent', '/s', 'click', 'hide_create_btn_luckydraw']);
+}
+if($(this).attr("name") == 'no_EnvelopeDiv_box'){
+// 将结束语、查看结果隐藏
+$('#end_desc,.inline-block-report').hide();
+$("#envelopeDiv_box").hide();
+$('#no_EnvelopeDiv_box').show();
+// 基础版用户自动展示抽奖
+if(hide_logo == 'False'){
+$('#no_EnvelopeDiv_box .draw_btn').click();
+}
+$('.luck_draw_tip').show();
+$('.footer_mini').css('background','#fff');
+$('.share_div').css('background','#fff');
+}else{
+$('#envelope_layer').fadeIn(150);
+$(".footer_mini").hide();
+}
+});
+// 抽奖按钮添加百度统计
+$('.go_draw_btn').live('click', function (e) {
+e.preventDefault();
+_hmt.push(['_trackEvent', '/s', 'click', 'lucky_draw_btn']);
+window.location.href = $(this).attr("href");
+});
+// 添加微信红包的项目中点击‘我也要免费创建项目’按钮的统计
+$('.end_create_btn').click(function(){
+if(window.has_lucky_money){
+_hmt.push(['_trackEvent', '/s', 'click', 'has_luckydraw_create_btn']);
+}
+});
+// 针对高级版、开通自定义抽奖的统计
+if($("iframe").attr('src') != ''){
+if($('.end_create_btn') == 1){
+// 有免费创建按钮总浏览量
+_hmt.push(['_trackEvent', '/s', 'click', 'luckydraw_has_createbtn']);
+$('.end_create_btn').click(function(){
+_hmt.push(['_trackEvent', '/s', 'click', 'luckydraw_click_create']);
+});
+$("#lucydrawIframe button").click(function(){
+_hmt.push(['_trackEvent', '/s', 'click', 'luckydraw_click_go']);
+});
+}else{
+// 没有免费创建按钮总浏览量
+_hmt.push(['_trackEvent', '/s', 'click', 'luckydraw_nohas_createbtn']);
+$("#lucydrawIframe button").click(function(){
+_hmt.push(['_trackEvent', '/s', 'click', 'luckydraw_click_goo']);
+});
+}
+}
+// 未领到红包显示抽奖
+$('#no_EnvelopeDiv_box .draw_btn').click(function(){
+_hmt.push(['_trackEvent', '/s', 'click', 'tryagain_btn']);
+// project.custom_attr.get('lucky_money_not_show_ad')不显示抽奖广告
+$('#no_EnvelopeDiv_box').hide();
+// 基础版用户未抽中红包页面，直接显示抽奖广告
+_hmt.push(['_trackPageview', '/s/pc_not_draw_envelope']);
+luck_draw_flow_distribution({ platform: 'pc', position: 'not_draw_envelope' });
+});
+})
+</script>
+<script type="text/javascript">
+var star_off = "https://static-wenjuan.b0.upaiyun.com/static/images/lv_pt_off.png?v=e6dcac8ef8e5d94933092288acebf4a3";
+var star_on = "https://static-wenjuan.b0.upaiyun.com/static/images/lv_pt_on.png?v=79f463a848f3bfd8038c9962a68d437b";
+
+
+var show_prev_btn = false;
+var timestr = "2018-05-17 01:25:12";
+var ev = "1";
+var uuid = "f48b61782caffef1175547921a2de1bd";
+var is_iframe = "";
+var vote_count = {};
+var vote_unit = "票";
+var vote_change = false;
+var is_ios = false;
+var from_idy = false;
+// var from_idy = true;
+var verify_types = null;
+
+var show_vcode = false;
+var estimate_map = {"5afc4b2892beb53f913050aa": 5, "5afc38d192beb540c8ad17f4": 4, "5afc390392beb53ef139ddd0": 4, "5afc4a2c92beb53f1f0352ef": 6, "5afc397692beb540c8ad1811": 3, "5afc39d392beb54092600ca1": 3, "5afc39f892beb540c8ad1838": 3, "5afc398c92beb53f1f0350ef": 3};
+var total_seconds = 35;
+var rand_int = 11;
+var s_func_id = "28";
+var vvv = "af23bb205900dd8865e36ec8ec1508bf";
+var func_name = "HLWKvqUl";
+eval(eval("s1(10)+s1(102)+s1(117)+s1(110)+s1(99)+s1(116)+s1(105)+s1(111)+s1(110)+s1(32)+s1(72)+s1(76)+s1(87)+s1(75)+s1(118)+s1(113)+s1(85)+s1(108)+s1(40)+s1(112)+s1(52)+s1(51)+s1(48)+s1(41)+s1(32)+s1(123)+s1(10)+s1(32)+s1(32)+s1(32)+s1(32)+s1(114)+s1(101)+s1(116)+s1(117)+s1(114)+s1(110)+s1(32)+s1(52)+s1(42)+s1(53)+s1(43)+s1(50)+s1(43)+s1(57)+s1(43)+s1(51)+s1(45)+s1(49)+s1(45)+s1(55)+s1(42)+s1(56)+s1(43)+s1(112)+s1(52)+s1(51)+s1(48)+s1(59)+s1(10)+s1(125)+s1(10)"));
+
+var luck_draw_ad_switch = "None";
+var has_lucky_money = '';
+var hide_logo = 'False';
+var site_rspd_url = 'http://www.wenjuan.com';
+var luck_money_rspd_time = +'';
+var luck_draw_rspd_time = +'';
+window.beginTime = '2018/05/17 01:25:12';
+// 是否有题目缓存
+var use_cache = '0';
+$(function(){
+if (check_in(project.status, [PROJECT_STATUS_PAUSED, PROJECT_STATUS_FINISHED, PROJECT_STATUS_CREATED])){
+if ($("#begin_content").find(".wjerror").length === 0 && !test_mode){
+$(".wjhr").before('<div class="wjerror mtop"><p>该问卷已停止收集</p></div>');
+}
+}
+});
+//自定义图片自适应屏幕
+function ImgWidthAuto(){
+var img = $('.wjContent .question img,.wjContent .wjintro img,.wjContent .wjtitle img,.wjlogo img');
+img.on('load',function(){imgF($(this))});
+img.each(function(){imgF($(this))});
+function imgF(_this){
+var imgW = _this.css('width');
+var conW = _this.parents('.wjContent').width();
+imgW=parseFloat(imgW);
+if(imgW>=800){
+_this.height('auto').width('100%');
+}
+_this.show();
+}
+}
+</script>
+<!--加载提示-->
+<link type="text/css" rel="stylesheet" href="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/load/load.css?v=bf1fb60788943f2da66cad2f1a021043" />
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/load/load.js?v=db6435ff6788556e3da9571729b55431"></script>
+<!-- 颜色值转换 -->
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/color_exchange.js?v=460f3787163ad67231c4a5516465967c"></script>
+<!--日期组件-->
+<link type="text/css" rel="stylesheet" href="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/date/css/zebra_datepicker_metallic.css?v=9d049d6833070cc0a5e39ab16e81f21f" />
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/plug-in/date/javascript/zebra_datepicker.js?v=7774bd0c8db8c364764d10de89666558"></script>
+<!-- 投票组件 -->
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/radialIndicator.js?v=aa31122037ed1f44818e24696c4e5f36"></script>
+
+<script>
+
+var is_idiaoyan = false;
+function showIntegral(m){
+if(m==undefined||m==null){m=5}
+var Win = document.documentElement.clientWidth || document.body.clientWidth;
+var con =$('<div style="display:none;position:absolute;top:10px;font-size:36px;color:#EC6618;">+'+m+'积分</div>');
+$('body').prepend(con);
+var conw = con.width()/2;
+con.css({'left':(Win/2-conw)+'px'});
+con.fadeIn("slow");
+setTimeout(function(){
+con.fadeOut("slow");
+setTimeout(function(){
+con.remove();
+},600);
+},3000);
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+if (isNotEmpty(is_iframe)){
+setTimeout(function(){
+get_iframe_height();
+},100);
+}
+
+
+
+});
+//外观设置
+function getExterior(data){
+this.data={};
+this.main=function(data){
+this.data = data;
+this.getLogo(data);
+this.getBodyBg(data);
+this.getWjBg(data);
+this.OtherColor(data);
+this.getWenjuanLogo(data);
+this.getFont(data);
+this.getOpacity(data);
+window.parent.getIframeHeight($('body').height());
+}
+//答题logo设置
+this.getLogo=function(data){
+this.data = data;
+var _this = this;
+if(!this.data.logoURL==""){
+var logoimg = new Image();
+logoimg.onload = function() {
+logoimg.height>140?logoimg.height=140:logoimg.height=logoimg.height;
+if($('.wjlogo').length>0){
+$('.wjlogo img').attr('src',_this.data.logoURL);
+$('.wjlogo img').attr('height',logoimg.height+"px");
+}else{
+$('#begin_content').prepend('<div class="wjlogo pleft cq_wjlogo"><img src="'+_this.data.logoURL+'" height="'+logoimg.height+'px"/></div>');
+}
+$('.wjlogo').css({"text-align":_this.data.logoPosition});
+ImgWidthAuto();
+};
+logoimg.src = this.data.logoURL;
+$('.wjlogo').css({"text-align":this.data.logoPosition});
+}else{
+$('.wjlogo').remove();
+}
+}
+//答题背景
+this.getBodyBg=function(data){
+this.data = data;
+var Attachment = "";
+this.data.TerminalStyle.PC.backgroundRepeat=="no-repeat"?Attachment="fixed":Attachment="";
+$('body').css({
+"backgroundColor":this.data.TerminalStyle.PC.BgColor==""?this.data.TerminalStyle.PC.BgColor="#fff":this.data.TerminalStyle.PC.BgColor,
+"backgroundImage":"url("+this.data.TerminalStyle.PC.BgImageURl+")",
+"backgroundPosition":this.data.TerminalStyle.PC.BgImagePosition,
+"backgroundRepeat":this.data.TerminalStyle.PC.backgroundRepeat,
+"backgroundAttachment":Attachment
+});
+$('.wjImgTop').remove();
+if(!this.data.TerminalStyle.PC.ImageURl==""){
+$('body').append('<div class="wjImgTop" style="background-image:url('+this.data.TerminalStyle.PC.ImageURl+')"></div>');
+}
+}
+//设置背景
+this.getWjBg=function(data){
+this.data = data;
+//问卷背景
+$('#survey_page').css({'backgroundColor':this.data.TerminalStyle.PC.WjBgColor});
+}
+//通用颜色设置
+this.OtherColor=function(data){
+this.data = data;
+$('.wjhr,.wj_color').css({'backgroundColor':this.data.TerminalStyle.PC.OtherColor});
+$('.wjprogress span').css({'color':this.data.TerminalStyle.PC.OtherColor});//问卷背景
+$('.wjprogress .bar').css({'borderColor':this.data.TerminalStyle.PC.OtherColor});//问卷背景
+$('.wjprogress .barbox').css({'backgroundColor':this.data.TerminalStyle.PC.OtherColor});//问卷背景
+$('#control_panel .WJButton').css({'border-width':'1px','border-style':'solid','border-color':this.data.TerminalStyle.PC.OtherColor,'color':reverseColor(this.data.TerminalStyle.PC.OtherColor.colorRgb())});//按钮对应背景颜色
+$('#control_panel .prevButton').css({'border-width':'1px','border-style':'solid','border-color':this.data.TerminalStyle.PC.OtherColor,'color':this.data.TerminalStyle.PC.OtherColor});//按钮对应背景颜色
+}
+//问卷logo颜色
+this.getWenjuanLogo=function(data){
+this.data = data;
+if(this.data.TerminalStyle.PC.BgImageURl==""){
+var logoColor = reverseColor(this.data.TerminalStyle.PC.BgColor.colorRgb());
+// $('.footer .wjtext').html("<div class='wjtext'><a href='http://www.wenjuan.com' target='_blank'>问卷网 </a><span>提供支持</span></div>");
+$('.instructions,.wjtext a,.instructions a.jubao').css({'color':logoColor});
+$('.instructions,.wjtext a,.instructions a.jubao').removeClass('yingyin');
+}else{
+$('.instructions,.wjtext a,.instructions a.jubao').addClass('yingyin');
+$('.footer .wjtext').html('<a class="gblogo_zh_CN" href="http://www.wenjuan.com" target="_blank" ></a>');
+}
+}
+//字体设置
+this.getFont=function(data){
+this.data = data;
+var fontArr = this.data.TerminalStyle.PC.font;
+for(var i=0;i<fontArr.length;i++){
+var style = "";
+style += fontArr[i].font;
+style += fontArr[i].size;
+style += fontArr[i].color;
+style += fontArr[i].bold;
+style += fontArr[i].italic;
+style += fontArr[i].underline;
+switch(fontArr[i].id){
+case "QuesitonStyle":
+$('.question .title').attr('style',style);//选项标题
+break;
+case "OptionsStyle":
+$('.question .option_label').attr('style',style);//选项标题设置
+break;
+case "TopicStyle":
+$('.project_title h1').attr('style',style);//问卷标题设置
+break;
+case "WelcomeStyle":
+$('.desc_begin').attr('style',style);//欢迎语设置
+break;
+case "EndStyle":
+$('#end_desc').attr('style',style);//结束语设置
+break;
+}
+}
+}
+this.getOpacity = function(data){
+this.data = data;
+var opacity = this.data.TerminalStyle.PC.opacity;
+opacity = opacity || 0;
+opacity = opacity / 100;
+$("#survey_page").css("opacity", 1-opacity);
+}
+return this.main(data);
+}
+function doExtraFunc(){
+//外观设置获取临时属性
+if (window.location.href.indexOf('preview=1') >= 0){
+getExterior(window.parent.QuesitonStyle);
+}
+if (window.location.href.indexOf('preview=1') >= 0){
+//外观设置功能返回答题高度
+setTimeout(function(){window.parent.getIframeHeight($('body').height());},50);
+//parent.document.getIframeHeight($('body,html').height());
+}
+}
+var getWenjuanLogo = function(data) {
+if(data.TerminalStyle.PC.BgImageURl == "") {
+var logoColor = reverseColor(data.TerminalStyle.PC.BgColor.colorRgb());
+// $('.footer .wjtext').html("<div class='wjtext'><a href='http://www.wenjuan.com' target='_blank'>问卷网 </a><span>提供支持</span></div>");
+$('.instructions,.wjtext a,.instructions .jubao').css({
+'color': logoColor
+});
+$('.instructions,.wjtext a,.instructions .jubao').removeClass('yingyin');
+} else {
+$('.instructions,.wjtext a,.instructions .jubao').addClass('yingyin');
+$('.footer .wjtext').html('<a class="gblogo_zh_CN" href="http://www.wenjuan.com" target="_blank" ></a>');
+}
+}
+var setExtraImage = function(data) {
+if(data.TerminalStyle.PC.ImageURl != "") {
+$('body').append('<div class="wjImgTop" style="background-image:url(' + data.TerminalStyle.PC.ImageURl + ')"></div>');
+}
+}
+var new_custom_style = {"logoPosition": "left", "TerminalStyle": {"PC": {"R_BgColor": "", "BgImagePosition": "", "backgroundRepeat": "repeat", "ImageURl": "", "BgColor": "#efefef", "WjBgColor": "#fff", "BgImageURl": "", "font": [{"size": "", "bold": "", "italic": "", "color": "", "font": "", "id": "QuesitonStyle", "underline": ""}, {"size": "", "bold": "", "italic": "", "color": "", "font": "", "id": "OptionsStyle", "underline": ""}, {"size": "", "bold": "", "italic": "", "color": "", "font": "", "id": "TopicStyle", "underline": ""}, {"size": "", "bold": "", "italic": "", "color": "", "font": "", "id": "WelcomeStyle", "underline": ""}, {"size": "", "bold": "", "italic": "", "color": "", "font": "", "id": "EndStyle", "underline": ""}], "OtherColor": "#53a4f4", "R_OtherColor": "#fff"}, "Phone": {"buttonSelectColor": "#2672FF", "titleBgColor": "#2672FF", "coverImgUrl": "", "titleBeginFontColor": "#FFFFFF", "beginFontSize": "16", "questionTitleFontColor": "#484848", "notCoverImg": true, "questionTitleFontSize": "22", "BgColor": "#F6F6F6", "theme": "22", "titleFontSize": "28", "questionOptionFontColor": "#484848"}}, "Language": "zh_CN", "logoURL": "", "Number": "false", "ProgressBar": "true"};
+if (isNotEmpty(new_custom_style)){
+getWenjuanLogo(new_custom_style);
+setExtraImage(new_custom_style);
+}
+</script>
+<script type="text/javascript">
+var mask=$('<div id="mask" class="mask"></div>');
+var case3='<div class="popup"><div class="pop-content"><div class="pop-title">您需要在微信中打开才能参与</div><p><span class="wxbg"></span><span class="wxtxt">用微信扫一扫下面的二维码</span></p><p class="tcode"><img src="/images/get_matrix_img?survey_url=https%3A%2F%2Fwww.wenjuan.com%2Fs%2FAjIz2iS%2F&box_size=5" alt="二维码" width="166" height="166"></p></div></div>';
+function login3(){
+mask.css("background-color", "#efefef").css("opacity", 1);
+$('body').append(mask);
+$('#mask').after(case3);
+}
+function Mask(){
+$("#mask").css("height",$(document).height());
+$("#mask").css("width",$('body,html').width());
+/* $("#mask").css("height",$(document).outerHeight());
+$("#mask").css("width",$(document).outerWidth()); */
+$("#mask").show(); $('.popup').css('top',($(window).height()-$('.popup').height())/2);
+$('.popup').css('left',($(window).width()-$('.popup').width())/2);
+}
+$(document).scroll(function(){Mask()});
+$(window).resize(function(){Mask()});
+</script>
+
+<script type="text/javascript" src="https://static-wenjuan.b0.upaiyun.com/static/js/rspd_third_party_stat.js?v=35f4875403c8ac2cb8c2ab68fb6e5b3c"></script>
+
