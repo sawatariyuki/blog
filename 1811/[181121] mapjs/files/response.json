@@ -1,0 +1,189 @@
+{
+  "currentVersion": 10.4,
+  "serviceDescription": "",
+  "mapName": "Layers",
+  "description": "",
+  "copyrightText": "",
+  "supportsDynamicLayers": false,
+  "layers": [
+    {
+      "id": 0,
+      "name": "extent",
+      "parentLayerId": -1,
+      "defaultVisibility": true,
+      "subLayerIds": null,
+      "minScale": 0,
+      "maxScale": 0
+    }
+  ],
+  "tables": [],
+  "spatialReference": {
+    "wkid": 4490,
+    "latestWkid": 4490
+  },
+  "singleFusedMapCache": true,
+  "tileInfo": {
+    "rows": 256,
+    "cols": 256,
+    "dpi": 96,
+    "format": "PNG24",
+    "compressionQuality": 0,
+    "origin": {
+      "x": -180,
+      "y": 90
+    },
+    "spatialReference": {
+      "wkid": 4490,
+      "latestWkid": 4490
+    },
+    "lods": [
+      {
+        "level": 0,
+        "resolution": 1.4062500262315776,
+        "scale": 590995197.141668
+      },
+      {
+        "level": 1,
+        "resolution": 0.7031250131157888,
+        "scale": 295497598.570834
+      },
+      {
+        "level": 2,
+        "resolution": 0.3515625065578944,
+        "scale": 147748799.285417
+      },
+      {
+        "level": 3,
+        "resolution": 0.1757812532789477,
+        "scale": 73874399.6427087
+      },
+      {
+        "level": 4,
+        "resolution": 0.08789062663947395,
+        "scale": 36937199.8213544
+      },
+      {
+        "level": 5,
+        "resolution": 0.04394531331973697,
+        "scale": 18468599.9106772
+      },
+      {
+        "level": 6,
+        "resolution": 0.021972656659868466,
+        "scale": 9234299.95533859
+      },
+      {
+        "level": 7,
+        "resolution": 0.010986328329934222,
+        "scale": 4617149.97766929
+      },
+      {
+        "level": 8,
+        "resolution": 0.005493164164967122,
+        "scale": 2308574.98883465
+      },
+      {
+        "level": 9,
+        "resolution": 0.0027465820824835495,
+        "scale": 1154287.49441732
+      },
+      {
+        "level": 10,
+        "resolution": 0.0013732910412417793,
+        "scale": 577143.747208662
+      },
+      {
+        "level": 11,
+        "resolution": 0.0006866455206208897,
+        "scale": 288571.873604331
+      },
+      {
+        "level": 12,
+        "resolution": 0.0003433227603104437,
+        "scale": 144285.936802165
+      },
+      {
+        "level": 13,
+        "resolution": 0.0001716613801552223,
+        "scale": 72142.9684010827
+      },
+      {
+        "level": 14,
+        "resolution": 0.00008583069007761127,
+        "scale": 36071.4842005414
+      },
+      {
+        "level": 15,
+        "resolution": 0.00004291534503880564,
+        "scale": 18035.7421002707
+      },
+      {
+        "level": 16,
+        "resolution": 0.000021457672519402795,
+        "scale": 9017.87105013534
+      },
+      {
+        "level": 17,
+        "resolution": 0.000010728836259701398,
+        "scale": 4508.93552506767
+      },
+      {
+        "level": 18,
+        "resolution": 0.000005364418129850711,
+        "scale": 2254.46776253384
+      },
+      {
+        "level": 19,
+        "resolution": 0.0000026822090649253553,
+        "scale": 1127.23388126692
+      },
+      {
+        "level": 20,
+        "resolution": 0.0000013411045324626777,
+        "scale": 563.61694063346
+      }
+    ]
+  },
+  "initialExtent": {
+    "xmin": 115.8042439392391,
+    "ymin": 32.57267843982646,
+    "xmax": 122.3896402189748,
+    "ymax": 35.462472587896144,
+    "spatialReference": {
+      "cs": "gcs",
+      "wkid": 4490
+    }
+  },
+  "fullExtent": {
+    "xmin": 116.10358013377254,
+    "ymin": 30.710719079012677,
+    "xmax": 122.09030402444137,
+    "ymax": 35.21265930204362,
+    "spatialReference": {
+      "cs": "gcs",
+      "wkid": 4490
+    }
+  },
+  "minScale": 4617149.97766929,
+  "maxScale": 1127.23388126692,
+  "units": "esriDecimalDegrees",
+  "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+  "documentInfo": {
+    "Title": "",
+    "Author": "",
+    "Comments": "",
+    "Subject": "",
+    "Category": "",
+    "AntialiasingMode": "None",
+    "TextAntialiasingMode": "Force",
+    "Keywords": ""
+  },
+  "capabilities": "Map,Query,Data",
+  "supportedQueryFormats": "JSON, AMF, geoJSON",
+  "exportTilesAllowed": false,
+  "maxRecordCount": 1000,
+  "maxImageHeight": 4096,
+  "maxImageWidth": 4096,
+  "tileServers": "",
+  "supportedExtensions": ""
+}
