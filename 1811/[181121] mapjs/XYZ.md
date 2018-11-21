@@ -1,4 +1,4 @@
-# openlayers调用江苏天地图（矢量底图 + 注解）
+# openlayers调用江苏天地图（矢量底图 + 注记）
 江苏天地图-特色功能-综合服务: http://www.mapjs.com.cn/map/pub/index  
 OpenLayers Workshop install: https://openlayers.org/workshop/en/
 
@@ -28,7 +28,7 @@ y = abs(abs(_y) - 2**(abs(_z) - 2) - 1)
 x = abs(_x)
 ```
 
-## 注解
+## 增加注记Layer
 将Layer中的请求地址换成下面的即可  
 http://218.2.231.245/mapjs2/rest/services/MapJS/js_slzj_2017/MapServer/tile/z/y/x  
 
