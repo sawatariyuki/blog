@@ -12,8 +12,7 @@ let mapLayer = new TileLayer({
         var z = Math.abs(xyz[0])
         var y = Math.abs(Math.abs(xyz[2]) - Math.pow(2, z - 2) - 1)
         var x = Math.abs(xyz[1])
-        var url = 'http://218.2.231.245/mapjs2/rest/services/MapJS/js_sldt_2017/MapServer/tile/'
-          + z + '/' + y + '/'+ x
+        let url = 'http://218.2.231.246/mapservice/wmts/vector?tilematrix='+z+'&tilerow='+y+'&tilecol='+x
         return url
     }
   })
