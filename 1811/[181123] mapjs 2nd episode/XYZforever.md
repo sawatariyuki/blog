@@ -27,7 +27,7 @@
 使用```proj.transform(position, 'EPSG:4326', 'EPSG:3857')```在两者之间转换
 
 ## 踩坑收获
-[0.正确的处理方式（XYZLayer）](./files/正确设置projection.js)
+[0.正确的处理方式（XYZLayer）](./files/正确设置projection.js)  
 [1.江苏天地图高清JSON注记样例](./files/天地图注记.json)  
 [2.江苏天地图对JSON注记的处理方式](./filse/江苏天地图自己对注记的处理方式.js)  
 [3.使用openlayers对上述JSON的处理方式（demo）](./files/使用天地图首页的江苏省注记.js)  
