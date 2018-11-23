@@ -22,7 +22,12 @@
 （之前只在```new Map()```里设了```projection:'EPSG:4326'```而```ol```默认的```projection```为```EPSG:3857```），  
 导致其与江苏天地图所用的```EPSG:4490```（对应```ol```中的```EPSG:4326```）对不上  
 
+## ```EPSG:3857```与```EPSG:4326```的区别
+地理上的经纬度对应```EPSG:4326```  
+使用```proj.transform(position, 'EPSG:4326', 'EPSG:3857')```在两者之间转换
+
 ## 踩坑收获
+[0.正确的处理方式（XYZLayer）](./files/正确设置projection.js)
 [1.江苏天地图高清JSON注记样例](./files/天地图注记.json)  
 [2.江苏天地图对JSON注记的处理方式](./filse/江苏天地图自己对注记的处理方式.js)  
 [3.使用openlayers对上述JSON的处理方式（demo）](./files/使用天地图首页的江苏省注记.js)  
